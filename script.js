@@ -12,7 +12,7 @@ async function handleEmailFormSubmit(event) {
     try {
         const result = await sendEmail(formData);
         if (responseDiv) {
-            responseDiv.innerHTML = `Correo enviado usando: ${result.provider}`;
+            responseDiv.innerHTML = `Correo enviado usando: ${result.message}`;
         }
     } catch (error) {
         if (responseDiv) {
@@ -49,7 +49,7 @@ async function sendEmail(formData) {
 
     const result = await response.json();
     if (!response.ok) {
-        throw new Error(result.text_error || 'Error en la solicitud');
+        throw new Error(result.error || 'Error en la solicitud');
     }
 
     return result;
