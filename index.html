@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicio de Email</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <button id="setCredentialsButton" onclick="loginAndSaveToken()">Setear credenciales</button>
+    
+        <h1>Enviar Correo Masivo</h1>
+        <form id="emailForm">
+            <div class="form-group">
+                <label for="baseUrl">Base URL (ejemplo: http://localhost:8000) sin "/" al final:</label>
+                <input type="text" id="baseUrl" name="BaseUrl" required>
+            </div>
+
+            <div id="emailInputs" style="display: none;">
+                <div class="form-group">
+                    <label for="subject">Asunto:</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="body">Cuerpo del Correo:</label>
+                    <textarea id="body" name="body" rows="10" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="from_email">Correo Remitente:</label>
+                    <input type="email" id="from_email" name="from_email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="to_emails">Correos Destinatarios (separados por comas):</label>
+                    <input type="text" id="to_emails" name="to_emails" required>
+                </div>
+
+                <button type="submit">Enviar</button>
+            </div>
+        </form>
+        <div id="response"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
